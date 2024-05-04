@@ -52,7 +52,6 @@ android {
 
 dependencies {
     implementation(libs.androidx.activity.compose)
-    implementation(libs.moko.resourcesCompose)
     implementation(compose.ui)
     implementation(compose.material3)
     implementation(libs.decompose)

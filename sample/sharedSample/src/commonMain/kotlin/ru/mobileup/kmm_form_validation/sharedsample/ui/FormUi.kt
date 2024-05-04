@@ -42,7 +42,6 @@ fun FormUi(
         modifier = modifier
             .fillMaxSize()
             .background(MaterialTheme.colorScheme.background)
-            .imePadding()
     ) {
         Column(
             verticalArrangement = Arrangement.spacedBy(8.dp),
@@ -101,15 +100,18 @@ fun FormUi(
             )
         }
 
-        AnimatedVisibility(valid) {
+        AnimatedVisibility(
+            visible = valid,
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(16.dp)
+                .background(MaterialTheme.colorScheme.onBackground.copy(alpha = 0.7f))
+                .padding(16.dp)
+                .align(Alignment.BottomCenter)
+        ) {
             Text(
                 text = stringResource(resource = MR.strings.yahoo),
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .padding(16.dp)
-                    .background(MaterialTheme.colorScheme.background)
-                    .padding(16.dp)
-                    .align(Alignment.BottomCenter)
+                color = MaterialTheme.colorScheme.background
             )
         }
     }

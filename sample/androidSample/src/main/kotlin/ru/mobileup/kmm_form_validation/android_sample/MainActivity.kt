@@ -15,13 +15,15 @@ import ru.mobileup.kmm_form_validation.sharedsample.ui.FormUi
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+        val component = Core.createFormComponent(defaultComponentContext())
         setContent {
             AppTheme {
                 Surface(
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colorScheme.background
                 ) {
-                    FormUi(component = Core.createFormComponent(defaultComponentContext()))
+                    FormUi(component = component)
                 }
             }
         }

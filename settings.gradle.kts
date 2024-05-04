@@ -17,3 +17,4 @@ dependencyResolutionManagement {
 include(":kmm-form-validation")
 include(":sample:androidSample")
 include(":sample:sharedSample")
+include(":sample:desktopSample")
