@@ -1,19 +1,8 @@
-val minSdkVersion by extra(23)
-val targetSdkVersion by extra(34)
-
-buildscript {
-
-    repositories {
-        gradlePluginPortal()
-        google()
-    }
-
-    dependencies {
-        classpath(libs.android.gradle)
-        classpath(libs.kotlin.gradle)
-    }
-}
-
-tasks.register("clean", Delete::class) {
-    delete(rootProject.buildDir)
+plugins {
+    alias(libs.plugins.android.application) apply false
+    alias(libs.plugins.android.library) apply false
+    alias(libs.plugins.kotlin.multiplatform) apply false
+    alias(libs.plugins.kotlin.jvm) apply false
+    alias(libs.plugins.kotlin.android) apply false
+    alias(libs.plugins.jetbrains.compose) apply false
 }

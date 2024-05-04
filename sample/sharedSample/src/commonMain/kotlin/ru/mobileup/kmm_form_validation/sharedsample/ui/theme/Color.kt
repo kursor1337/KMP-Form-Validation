@@ -1,4 +1,4 @@
-package ru.mobileup.kmm_form_validation.android_sample.ui.theme
+package ru.mobileup.kmm_form_validation.sharedsample.ui.theme
 
 import androidx.compose.ui.graphics.Color
 

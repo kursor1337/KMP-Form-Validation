@@ -1,4 +1,4 @@
-package ru.mobileup.kmm_form_validation
+package ru.mobileup.kmm_form_validation.compose
 
 import androidx.compose.ui.text.AnnotatedString
 import androidx.compose.ui.text.input.TransformedText

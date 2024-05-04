@@ -1,6 +1,7 @@
 plugins {
-    kotlin("multiplatform")
-    id("com.android.library")
+    alias(libs.plugins.kotlin.multiplatform)
+    alias(libs.plugins.android.library)
+    alias(libs.plugins.jetbrains.compose)
 }
 
 apply {
@@ -8,9 +9,11 @@ apply {
 }
 
 kotlin {
-    android {
+    androidTarget {
         publishLibraryVariants("release")
     }
+
+    jvm("desktop")
 
     listOf(
         iosX64(),
@@ -23,36 +26,22 @@ kotlin {
     }
 
     sourceSets {
-        val commonMain by getting {
-            dependencies {
-                implementation(libs.coroutines.core)
-                implementation(libs.moko.resources)
-            }
-        }
-        val androidMain by getting {
-            dependencies {
-                implementation(libs.compose.foundation)
-                implementation(libs.compose.ui)
-            }
-        }
-        val iosX64Main by getting
-        val iosArm64Main by getting
-        val iosSimulatorArm64Main by getting
-        val iosMain by creating {
-            dependsOn(commonMain)
-            iosX64Main.dependsOn(this)
-            iosArm64Main.dependsOn(this)
-            iosSimulatorArm64Main.dependsOn(this)
+        commonMain.dependencies {
+            implementation(libs.coroutines.core)
+            implementation(libs.moko.resources)
+            implementation(compose.foundation)
+            implementation(compose.ui)
         }
     }
 }
 
 android {
-    val minSdkVersion: Int by rootProject.extra
-    val targetSdkVersion: Int by rootProject.extra
+    val minSdkVersion: Int = libs.versions.android.minSdk.get().toInt()
+    val targetSdkVersion: Int = libs.versions.android.targetSdk.get().toInt()
+    val compileSdkVersion: Int = libs.versions.android.compileSdk.get().toInt()
 
     namespace = "ru.mobileup.kmm_form_validation"
-    compileSdk = targetSdkVersion
+    compileSdk = compileSdkVersion
     defaultConfig {
         minSdk = minSdkVersion
         targetSdk = targetSdkVersion

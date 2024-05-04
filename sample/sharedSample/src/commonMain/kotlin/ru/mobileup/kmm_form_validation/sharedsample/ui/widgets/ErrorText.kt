@@ -1,9 +1,9 @@
-package ru.mobileup.kmm_form_validation.android_sample.ui.widgets
+package ru.mobileup.kmm_form_validation.sharedsample.ui.widgets
 
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.padding
-import androidx.compose.material.MaterialTheme
-import androidx.compose.material.Text
+import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
@@ -17,6 +17,6 @@ fun ErrorText(
     Text(
         modifier = modifier.padding(paddingValues),
         text = errorText,
-        style = MaterialTheme.typography.caption.copy(color = MaterialTheme.colors.error)
+        style = MaterialTheme.typography.bodySmall.copy(color = MaterialTheme.colorScheme.error)
     )
 }
